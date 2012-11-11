@@ -146,7 +146,7 @@ class Soundcloud
       {:grant_type => 'refresh_token',      :refresh_token => refresh_token}
     elsif options_for_credentials_flow_present?
       {:grant_type => 'password',           :username      => @options[:username],     :password => @options[:password]}
-    elsif options_for_code_flow_present?
+    else
       {:grant_type => 'authorization_code', :redirect_uri  => @options[:redirect_uri], :code => @options[:code]}
     end
     params.merge!(client_params)
